@@ -1,0 +1,74 @@
+#!/bin/bash
+JRE=/Users/zhoulijun/workspace/nuls/jre/jre-linux
+CHAIN_BOX=`cd ./chain_box; pwd`
+ROOT=`pwd`
+MODULE="ALL"
+if [ -n "$1" ]; then
+	MODULE=$1
+fi
+rm -f $CHAIN_BOX/.package.ncf
+if [ $MODULE == "ALL" -o $MODULE == "main_release" ]; then
+	cd $CHAIN_BOX
+	./tools -a smart-contract
+	./tools -a chain-manager
+	./tools -a cross-chain
+	./tools -a protocol-update
+	./tools -d public-service
+	./tools -J $JRE -p
+	rm -rf $ROOT/main_release/NULS_WALLET
+	mv NULS_WALLET $ROOT/main_release/NULS_WALLET
+	cp -f $ROOT/conf/chain2/nuls.ncf $ROOT/main_release/NULS_WALLET/
+	cp -f $ROOT/conf/chain2/genesis-block.json $ROOT/main_release/NULS_WALLET/
+	cd $ROOT/main_release
+	./build -p
+fi
+
+if [ $MODULE == "ALL" -o $MODULE == "main_pro" ]; then
+	cd $CHAIN_BOX
+	./tools -a smart-contract
+	./tools -a chain-manager
+	./tools -a cross-chain
+	./tools -a protocol-update
+	./tools -a public-service
+	./tools -J $JRE -p nuls-module-web-wallet nuls-module-explorer
+	rm -rf $ROOT/main_pro/NULS_WALLET
+	mv NULS_WALLET $ROOT/main_pro/NULS_WALLET
+	cp -f $ROOT/conf/chain2/nuls.ncf $ROOT/main_pro/NULS_WALLET/
+	cp -f $ROOT/conf/chain2/genesis-block.json $ROOT/main_pro/NULS_WALLET/
+	cd $ROOT/main_pro
+	./build -p
+fi
+
+# 更新平行链普通节点镜像
+if [ $MODULE == "ALL" -o $MODULE == "slave_release" ]; then
+	cd $CHAIN_BOX
+	./tools -d public-service
+	./tools -d chain-manager
+	./tools -a smart-contract
+	./tools -a cross-chain
+	./tools -a protocol-update
+	./tools -J $JRE -p
+	rm -rf $ROOT/slave_release/NULS_WALLET
+	mv NULS_WALLET $ROOT/slave_release/NULS_WALLET
+	cp -f $ROOT/conf/chain10/nuls.ncf $ROOT/slave_release/NULS_WALLET/
+	cp -f $ROOT/conf/chain10/genesis-block.json $ROOT/slave_release/NULS_WALLET/
+	cd $ROOT/slave_release
+	./build -p
+fi
+
+# 更新平行链pro节点镜像
+if [ $MODULE == "ALL" -o $MODULE == "slave_pro" ]; then
+	cd $CHAIN_BOX
+	./tools -d chain-manager
+	./tools -a public-service
+	./tools -a smart-contract
+	./tools -a cross-chain
+	./tools -a protocol-update
+	./tools -J $JRE -p nuls-module-web-wallet nuls-module-explorer
+	rm -rf $ROOT/slave_pro/NULS_WALLET
+	mv NULS_WALLET $ROOT/slave_pro/NULS_WALLET
+	cp -f $ROOT/conf/chain10/nuls.ncf $ROOT/slave_pro/NULS_WALLET/
+	cp -f $ROOT/conf/chain10/genesis-block.json $ROOT/slave_pro/NULS_WALLET/
+	cd $ROOT/slave_pro
+	./build -p
+fi

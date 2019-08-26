@@ -1,0 +1,5 @@
+#!/bin/bash
+docker build -t 192.168.1.107/wallet-pro:release_slave .
+if [ -n "$1" ]; then
+	docker push 192.168.1.107/wallet-pro:release_slave
+fi

@@ -1,0 +1,9 @@
+#!/bin/bash
+docker run \
+ 	--name nuls-wallet \
+ 	-d \
+ 	-p 18001:18001 \
+ 	-p 18002:18002 \
+ 	-v `pwd`/data:/nuls/data \
+ 	-v `pwd`/logs:/nuls/Logs \
+ 	192.168.1.107/wallet:release_slave

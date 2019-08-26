@@ -1,0 +1,64 @@
+#!/bin/bash
+export nuls110='sshpass -p admin ssh root@192.168.1.110'
+#主网：
+export nuls114='sshpass -p admin ssh root@192.168.1.114'
+export nuls115='sshpass -p admin ssh root@192.168.1.115'
+export nuls121='sshpass -p admin ssh root@192.168.1.121'
+export nuls122='sshpass -p admin ssh root@192.168.1.122'
+export nuls123='sshpass -p admin ssh root@192.168.1.123'
+export nuls124='sshpass -p admin ssh root@192.168.1.124'
+export nuls130='sshpass -p admin ssh root@192.168.1.130'
+export nuls131='sshpass -p admin ssh root@192.168.1.131'
+export nuls132='sshpass -p admin ssh root@192.168.1.132'
+export nuls133='sshpass -p admin ssh root@192.168.1.133'
+export nuls134='sshpass -p admin ssh root@192.168.1.134'
+export nuls135='sshpass -p admin ssh root@192.168.1.135'
+export nuls136='sshpass -p admin ssh root@192.168.1.136'
+export nuls137='sshpass -p admin ssh root@192.168.1.137'
+export nuls139='sshpass -p admin ssh root@192.168.1.139'
+export nuls140='sshpass -p admin ssh root@192.168.1.140'
+#平行链：
+export nuls111='sshpass -p admin ssh root@192.168.1.111'
+export nuls112='sshpass -p admin ssh root@192.168.1.112'
+export nuls113='sshpass -p admin ssh root@192.168.1.113'
+export nuls125='sshpass -p admin ssh root@192.168.1.125'
+export nuls141='sshpass -p admin ssh root@192.168.1.141'
+export nuls142='sshpass -p admin ssh root@192.168.1.142'
+
+
+# .bashrc
+
+# User specific aliases and functions
+
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias nuls110='sshpass -p admin ssh root@192.168.1.110'
+#主网：
+alias nuls114='sshpass -p admin ssh root@192.168.1.114'
+alias nuls115='sshpass -p admin ssh root@192.168.1.115'
+alias nuls121='sshpass -p admin ssh root@192.168.1.121'
+alias nuls122='sshpass -p admin ssh root@192.168.1.122'
+alias nuls123='sshpass -p admin ssh root@192.168.1.123'
+alias nuls124='sshpass -p admin ssh root@192.168.1.124'
+alias nuls130='sshpass -p admin ssh root@192.168.1.130'
+alias nuls131='sshpass -p admin ssh root@192.168.1.131'
+alias nuls132='sshpass -p admin ssh root@192.168.1.132'
+alias nuls133='sshpass -p admin ssh root@192.168.1.133'
+alias nuls134='sshpass -p admin ssh root@192.168.1.134'
+alias nuls135='sshpass -p admin ssh root@192.168.1.135'
+alias nuls136='sshpass -p admin ssh root@192.168.1.136'
+alias nuls137='sshpass -p admin ssh root@192.168.1.137'
+alias nuls139='sshpass -p admin ssh root@192.168.1.139'
+alias nuls140='sshpass -p admin ssh root@192.168.1.140'
+#平行链：
+alias nuls111='sshpass -p admin ssh root@192.168.1.111'
+alias nuls112='sshpass -p admin ssh root@192.168.1.112'
+alias nuls113='sshpass -p admin ssh root@192.168.1.113'
+alias nuls125='sshpass -p admin ssh root@192.168.1.125'
+alias nuls141='sshpass -p admin ssh root@192.168.1.141'
+alias nuls142='sshpass -p admin ssh root@192.168.1.142'
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi

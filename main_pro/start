@@ -1,0 +1,13 @@
+#!/bin/bash
+docker run \
+ 	--name nuls-wallet \
+ 	-d \
+ 	-p 18001:18001 \
+ 	-p 18002:18002 \
+ 	-p 18005:1999  \
+ 	-p 18004:18004 \
+ 	-v `pwd`/mongo_data:/nuls/mongo_data \
+ 	-v `pwd`/mongo_log:/nuls/mongo_log \
+ 	-v `pwd`/data:/nuls/data \
+ 	-v `pwd`/logs:/nuls/Logs \
+ 	nulsio/wallet-pro:beta3.1
